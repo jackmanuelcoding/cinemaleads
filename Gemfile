@@ -24,6 +24,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "syntax_tree"
   gem "web-console"
 
   # gem "rack-mini-profiler"
