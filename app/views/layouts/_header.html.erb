@@ -109,14 +109,16 @@
             data-transition-leave-start="transform opacity-100 scale-100"
             data-transition-leave-end="transform opacity-0 scale-95"
           >
-            <%=
-              link_to "Console",
-              console_path,
-              class: "block px-4 py-2 text-sm text-gray-700",
-              role: "menuitem",
-              tabindex: "-1",
-              id: "user-menu-item-0"
-            %>
+            <% if current_user.admin? %>
+              <%=
+                link_to "Console",
+                console_path,
+                class: "block px-4 py-2 text-sm text-gray-700",
+                role: "menuitem",
+                tabindex: "-1",
+                id: "user-menu-item-0"
+              %>
+            <% end %>
             <%=
               link_to "Settings",
               edit_user_registration_path,
