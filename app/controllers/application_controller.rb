@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   private
 
   def user_not_authorized
-    redirect_back(fallback_location: root_path)
+    redirect_back(fallback_location: leads_path)
   end
 end

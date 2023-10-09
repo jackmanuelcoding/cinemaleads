@@ -1,0 +1,170 @@
+<div class="space-y-10 divide-y divide-gray-900/10">
+  <div class="grid grid-cols-1 gap-x-8 gap-y-8 pt-10 md:grid-cols-3">
+    <div class="px-4 sm:px-0">
+      <% if controller_name == "leads" && action_name == "new" %>
+        <h2 class="text-base font-semibold leading-7 text-gray-900">
+          Add a new lead
+        </h2>
+        <p class="mt-1 text-sm leading-6 text-gray-600">
+          Each field must be present. Use "N/A" if need be.
+        </p>
+      <% elsif controller_name == "leads" && action_name == "edit" %>
+        <h2 class="text-base font-semibold leading-7 text-gray-900">
+          Edit the current lead
+        </h2>
+        <p class="mt-1 text-sm leading-6 text-gray-600">
+          Each field must be present. Use "N/A" if need be.
+        </p>
+      <% end %>
+    </div>
+    
+    <%= form_with(model: @lead, html: { class: "bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2" }) do |f| %>
+      <div class="px-4 py-6 sm:p-8">
+        <div
+          class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
+        >
+          <div class="sm:col-span-4">
+            <%= 
+              f.label :country,
+              class: "block text-sm font-medium leading-6 text-gray-900"  
+            %>
+            <div class="mt-2">
+              <%= 
+                f.text_field :country,
+                class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
+              %>
+              <% @lead.errors.full_messages_for(:country).each do |e| %>
+                <div class="mt-2 text-sm text-red-600">
+                  <%= e %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <%= 
+              f.label :company,
+              class: "block text-sm font-medium leading-6 text-gray-900"  
+            %>
+            <div class="mt-2">
+              <%= 
+                f.text_field :company,
+                class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
+              %>
+              <% @lead.errors.full_messages_for(:company).each do |e| %>
+                <div class="mt-2 text-sm text-red-600">
+                  <%= e %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <%= 
+              f.label :website,
+              class: "block text-sm font-medium leading-6 text-gray-900"  
+            %>
+            <div class="mt-2">
+              <%= 
+                f.text_field :website,
+                class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
+              %>
+              <% @lead.errors.full_messages_for(:website).each do |e| %>
+                <div class="mt-2 text-sm text-red-600">
+                  <%= e %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <%= 
+              f.label :linkedin,
+              "LinkedIn",
+              class: "block text-sm font-medium leading-6 text-gray-900"  
+            %>
+            <div class="mt-2">
+              <%= 
+                f.text_field :linkedin,
+                class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
+              %>
+              <% @lead.errors.full_messages_for(:linkedin).each do |e| %>
+                <div class="mt-2 text-sm text-red-600">
+                  <%= e %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <%= 
+              f.label :email,
+              class: "block text-sm font-medium leading-6 text-gray-900"  
+            %>
+            <div class="mt-2">
+              <%= 
+                f.email_field :email,
+                class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
+              %>
+              <% @lead.errors.full_messages_for(:email).each do |e| %>
+                <div class="mt-2 text-sm text-red-600">
+                  <%= e %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <%= 
+              f.label :phone,
+              class: "block text-sm font-medium leading-6 text-gray-900"  
+            %>
+            <div class="mt-2">
+              <%= 
+                f.number_field :phone,
+                class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
+              %>
+              <% @lead.errors.full_messages_for(:phone).each do |e| %>
+                <div class="mt-2 text-sm text-red-600">
+                  <%= e %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <%= 
+              f.label :category,
+              class: "block text-sm font-medium leading-6 text-gray-900"  
+            %>
+            <div class="mt-2">
+              <%= 
+                f.text_field :category,
+                class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
+              %>
+              <% @lead.errors.full_messages_for(:category).each do |e| %>
+                <div class="mt-2 text-sm text-red-600">
+                  <%= e %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="flex items-center justify-end gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8"
+      >
+        <%=
+          link_to "Cancel",
+          leads_path, 
+          class: "text-sm font-semibold leading-6 text-gray-900" 
+        %>
+        <%=
+          f.submit action_name == "new" ? "Add" : "Save",
+          class: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer" 
+        %>
+      </div>
+    <% end %>
+  </div>
+</div>

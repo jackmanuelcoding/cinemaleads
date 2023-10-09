@@ -12,4 +12,6 @@ Rails.application.routes.draw do
                password: "forgot-password",
                edit: "settings"
              }
+
+  resources :leads, except: [:show]
 end
