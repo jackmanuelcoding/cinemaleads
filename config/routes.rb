@@ -14,4 +14,6 @@ Rails.application.routes.draw do
              }
 
   resources :leads, except: [:show]
+
+  resource :console, only: [:show]
 end

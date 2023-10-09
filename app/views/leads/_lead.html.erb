@@ -5,7 +5,7 @@
       A list of distributors and their contact details.
     </p>
   </div>
-  <% if current_user.admin? %>
+  <% if current_user.admin? && controller_name == "consoles" && action_name == "show" %>
     <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
       <%=
         link_to "Add lead",
