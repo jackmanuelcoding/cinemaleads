@@ -2,7 +2,12 @@ class LeadsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @leads = Lead.all.order(:country)
+    @leads = Lead.all.order(:country, :company)
+
+    if params[:category].present?
+      @leads =
+        Lead.all.order(:country, :company).where(category: params[:category])
+    end
   end
 
   def new

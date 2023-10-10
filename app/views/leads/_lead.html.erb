@@ -2,7 +2,7 @@
   <div class="sm:flex-auto">
     <h1 class="text-base font-semibold leading-6 text-gray-900">Leads</h1>
     <p class="mt-2 text-sm text-gray-700">
-      A list of distributors and their contact details.
+      A list of leads and their contact details.
     </p>
   </div>
   <% if current_user.admin? && controller_name == "consoles" && action_name == "show" %>
@@ -12,6 +12,96 @@
         new_lead_path,
         class: "block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" 
       %>
+    </div>
+  <% else %>
+    <div class="inline-flex rounded-md shadow-sm" data-controller="lead">
+      <button
+        type="button"
+        class="relative inline-flex items-center rounded-l-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+      >
+        Filter by
+      </button>
+      <div class="relative -ml-px block">
+        <button
+          type="button"
+          class="relative inline-flex items-center rounded-r-md bg-white px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+          id="option-menu-button"
+          aria-expanded="true"
+          aria-haspopup="true"
+          data-action="lead#toggleFilterByOptions"
+        >
+          <span class="sr-only">Open options</span>
+          <svg
+            class="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <div
+          class="hidden absolute right-0 z-10 -mr-1 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          role="menu"
+          aria-orientation="vertical"
+          aria-labelledby="option-menu-button"
+          tabindex="-1"
+          data-lead-target="filterByOptions"
+          data-transition-enter="transition ease-out duration-100"
+          data-transition-enter-start="transform opacity-0 scale-95"
+          data-transition-enter-end="transform opacity-100 scale-100"
+          data-transition-leave="transition ease-in duration-75"
+          data-transition-leave-start="transform opacity-100 scale-100"
+          data-transition-leave-end="transform opacity-0 scale-95"
+        >
+          <div class="py-1" role="none">
+            <%=
+              link_to "All",
+              leads_path,
+              class: "text-gray-700 block px-4 py-2 text-sm", 
+              role: "menuitem",
+              tabindex: "-1",
+              id: "option-menu-item-0"
+            %>
+            <%=
+              link_to "Financiers",
+              leads_path(category: "financiers"),
+              class: "text-gray-700 block px-4 py-2 text-sm", 
+              role: "menuitem",
+              tabindex: "-1",
+              id: "option-menu-item-1"
+            %>
+            <%=
+              link_to "Studios",
+              leads_path(category: "studios"),
+              class: "text-gray-700 block px-4 py-2 text-sm", 
+              role: "menuitem",
+              tabindex: "-1",
+              id: "option-menu-item-2"
+            %>
+            <%=
+              link_to "Festivals",
+              leads_path(category: "festivals"),
+              class: "text-gray-700 block px-4 py-2 text-sm", 
+              role: "menuitem",
+              tabindex: "-1",
+              id: "option-menu-item-3"
+            %>
+            <%=
+              link_to "Distributors",
+              leads_path(category: "distributors"),
+              class: "text-gray-700 block px-4 py-2 text-sm", 
+              role: "menuitem",
+              tabindex: "-1",
+              id: "option-menu-item-4"
+            %>
+          </div>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
@@ -60,7 +150,7 @@
               >
                 Phone number
               </th>
-              <% if current_user.admin? %>
+              <% if current_user.admin? && controller_name == "consoles" && action_name == "show" %>
                 <th
                   scope="col"
                   class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
@@ -104,9 +194,9 @@
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                   <%= l.phone %>
                 </td>
-                <% if current_user.admin? %>
+                <% if current_user.admin? && controller_name == "consoles" && action_name == "show" %>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                    <%= l.category %>
+                    <%= l.category.capitalize.singularize %>
                   </td>
                   <td
                     class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6"
@@ -128,7 +218,7 @@
                   </td>
                 <% else %>
                   <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-6">
-                    <%= l.category %>
+                    <%= l.category.capitalize.singularize %>
                   </td>
                 <% end %>
               </tr>
