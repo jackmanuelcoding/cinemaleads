@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :leads, except: [:show]
 
   resource :console, only: [:show]
+
+  get "search", to: "searches#index", as: "search"
 end
