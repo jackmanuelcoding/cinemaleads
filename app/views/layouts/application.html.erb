@@ -12,7 +12,7 @@
   </head>
 
   <body class="h-full">
-    <%= render "layouts/flash_message" unless devise_controller? %>
+    <%= render "layouts/flash_message" if user_signed_in? %>
     <%= render "layouts/header" if user_signed_in? %>
     <%= yield %>
   </body>
