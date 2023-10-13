@@ -15,9 +15,14 @@ Rails.application.routes.draw do
                edit: "settings"
              }
 
+  resources :stripe_webhooks, only: [:create]
   resources :leads, except: [:show]
 
   resource :console, only: [:show]
 
+  get "checkout", to: "checkouts#new", as: "checkout"
+  post "create-checkout-session",
+       to: "checkouts#create",
+       as: "create_checkout_session"
   get "search", to: "searches#index", as: "search"
 end

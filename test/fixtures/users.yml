@@ -3,9 +3,17 @@
 admin:
   email: jack@gmail.com
   encrypted_password: Password123!
+  subscribed: true
   admin: true
 
 customer:
   email: chanwook@gmail.com
   encrypted_password: Password123!
+  subscribed: true
+  admin: false
+
+unsubscribed:
+  email: david@gmail.com
+  encrypted_password: Password123!
+  subscribed: false
   admin: false

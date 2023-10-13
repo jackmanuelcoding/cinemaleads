@@ -2,6 +2,8 @@ class LeadsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    redirect_to checkout_path unless current_user.subscribed?
+
     @leads = Lead.all.order(:country, :company)
 
     if params[:category].present?
