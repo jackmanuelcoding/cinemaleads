@@ -12,8 +12,8 @@
   </head>
 
   <body class="h-full">
-    <%= render "layouts/flash_message" if user_signed_in? %>
-    <%= render "layouts/header" if user_signed_in? %>
+    <%= render "layouts/flash_message" if user_signed_in? && controller_name != "checkouts" %>
+    <%= render "layouts/header" if user_signed_in? && controller_name != "checkouts" %>
     <%= yield %>
   </body>
 </html>
