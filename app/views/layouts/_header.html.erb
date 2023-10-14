@@ -5,13 +5,15 @@
     <div class="relative flex h-16 justify-between">
       <div class="relative z-10 flex px-2 lg:px-0">
         <div class="flex flex-shrink-0 items-center">
-          <%=
-            image_tag(
-              "cinemaleads_logo.svg",
-              class: "h-8 w-auto",
-              alt: "CinemaLeads" 
-            )
-          %>
+          <%= link_to leads_path do %>
+            <%=
+              image_tag(
+                "https://cinemaleads-public-assets.s3.us-west-1.amazonaws.com/cinemaleads_logo.svg",
+                class: "h-8 w-auto",
+                alt: "CinemaLeads" 
+              )
+            %>
+          <% end %>
         </div>
       </div>
       <% unless controller_name == "consoles" && action_name == "show" %>
