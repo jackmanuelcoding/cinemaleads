@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html class="h-full bg-gray-50">
   <head>
-    <title>CinemaLeads</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CinemaLeads | Find the perfect home for your next film</title>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= favicon_link_tag("https://cinemaleads-public-assets.s3.us-west-1.amazonaws.com/cinemaleads_favicon.png") %>
+    <meta
+      name="description"
+      content="A directory of film financiers, studios, festivals, and distributors."
+    />
+    <meta
+      name="keywords"
+      content="filmmaking, film financiers, film studios, film festivals, film distributors, list of film festivals, list of film distributors, how to get into film festivals, how to submit film to cannes, how to submit film to oscars, how to get film distributed, how to sell film, hot to get film on netflix"
+    />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body class="h-full">
     <%= render "layouts/flash_message" if user_signed_in? && controller_name != "checkouts" %>
     <%= render "layouts/header" if user_signed_in? && controller_name != "checkouts" %>
