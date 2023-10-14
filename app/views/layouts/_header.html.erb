@@ -16,7 +16,7 @@
           <% end %>
         </div>
       </div>
-      <% unless controller_name == "consoles" && action_name == "show" %>
+      <% unless controller_name == "consoles" && action_name == "show" || devise_controller? %>
         <%= form_with url: "/search", html: { class: "relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0" }, method: :get do |f| %>
           <div class="w-full sm:max-w-xs">
             <%= 
