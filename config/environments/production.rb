@@ -107,6 +107,7 @@ Rails.application.configure do
     host: "https://www.cinemaleads.com"
   }
   config.action_mailer.delivery_method = :postmark
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.postmark_settings = {
     server_api_token:
       Rails.application.credentials.dig(:postmark, :server_api_token)
