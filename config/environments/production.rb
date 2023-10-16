@@ -4,7 +4,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   r301 /.*/,
-       "cinemaleads.com$&",
+       "https://cinemaleads.com$&",
        if: Proc.new { |rack_env| rack_env["SERVER_NAME"] != "cinemaleads.com" }
 
   # Code is not reloaded between requests.
