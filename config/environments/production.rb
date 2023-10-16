@@ -3,6 +3,12 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.middleware.use Rack::HostRedirect,
+                        {
+                          "cinemaleads-b6e84bcb32d1.herokuapp.com" =>
+                            "cinemaleads.com"
+                        }
+
   # Code is not reloaded between requests.
   config.enable_reloading = false
 
