@@ -198,6 +198,8 @@ GEM
       activesupport (>= 3.0.0)
     racc (1.7.1)
     rack (3.0.8)
+    rack-host-redirect (1.3.0)
+      rack
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -320,6 +322,7 @@ DEPENDENCIES
   postmark-rails
   puma (>= 5.0)
   pundit
+  rack-host-redirect
   rails (~> 7.1.0)
   selenium-webdriver
   sentry-rails (~> 5.12)

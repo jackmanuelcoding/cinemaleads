@@ -12,6 +12,7 @@ gem "pg", "~> 1.1"
 gem "postmark-rails"
 gem "puma", ">= 5.0"
 gem "pundit"
+gem "rack-host-redirect"
 gem "rails", "~> 7.1.0"
 gem "sprockets-rails"
 gem "stimulus-rails"
@@ -43,7 +44,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "dockerfile-rails", ">= 1.5", :group => :development
+gem "dockerfile-rails", ">= 1.5", group: :development
 
 gem "sentry-ruby", "~> 5.12"
 
