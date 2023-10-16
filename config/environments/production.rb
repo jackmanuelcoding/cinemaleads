@@ -6,7 +6,7 @@ Rails.application.configure do
   config.middleware.use Rack::HostRedirect,
                         {
                           "cinemaleads-b6e84bcb32d1.herokuapp.com" =>
-                            "https://www.cinemaleads.com"
+                            "cinemaleads.com"
                         }
 
   # Code is not reloaded between requests.
@@ -103,13 +103,10 @@ Rails.application.configure do
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
-  config.action_mailer.default_url_options = {
-    host: "https://www.cinemaleads.com"
-  }
+  config.action_mailer.default_url_options = { host: "cinemaleads.com" }
   config.action_mailer.delivery_method = :postmark
   config.action_mailer.perform_deliveries = true
   config.action_mailer.postmark_settings = {
-    server_api_token:
-      Rails.application.credentials.dig(:postmark, :server_api_token)
+    api_token: Rails.application.credentials.dig(:postmark, :api_token)
   }
 end
