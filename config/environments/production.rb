@@ -6,7 +6,7 @@ Rails.application.configure do
   config.middleware.use Rack::HostRedirect,
                         {
                           "cinemaleads-b6e84bcb32d1.herokuapp.com" =>
-                            "cinemaleads.com"
+                            "https://www.cinemaleads.com"
                         }
 
   # Code is not reloaded between requests.
