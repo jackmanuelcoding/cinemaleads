@@ -68,8 +68,6 @@ class LeadsController < ApplicationController
       :company,
       :website,
       :linkedin,
-      :email,
-      :phone,
       :category
     )
   end
