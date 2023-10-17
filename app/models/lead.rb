@@ -20,6 +20,7 @@ class Lead < ApplicationRecord
               message: "must be 255 characters or less."
             }
   validates :linkedin,
+            presence: true,
             length: {
               maximum: 255,
               message: "must be 255 characters or less."
