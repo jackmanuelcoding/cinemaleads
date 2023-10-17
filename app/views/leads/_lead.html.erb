@@ -1,9 +1,16 @@
 <div class="sm:flex sm:items-center">
   <div class="sm:flex-auto">
-    <h1 class="text-base font-semibold leading-6 text-gray-900">Leads</h1>
-    <p class="mt-2 text-sm text-gray-700">
-      A list of leads and their contact details.
-    </p>
+    <% if controller_name == "leads" && action_name == "index" %>
+      <h1 class="text-base font-semibold leading-6 text-gray-900">Leads</h1>
+      <p class="mt-2 text-sm text-gray-700">
+        A list of leads and their contact details.
+      </p>
+    <% elsif current_user.admin? && controller_name == "consoles" && action_name == "show" %>
+      <h1 class="text-base font-semibold leading-6 text-gray-900">Admin console</h1>
+      <p class="mt-2 text-sm text-gray-700">
+        Manage the leads database.
+      </p>
+    <% end %>
   </div>
   <% if current_user.admin? && controller_name == "consoles" && action_name == "show" %>
     <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
