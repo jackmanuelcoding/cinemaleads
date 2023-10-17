@@ -138,18 +138,6 @@
               >
                 LinkedIn
               </th>
-              <th
-                scope="col"
-                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-              >
-                Email address
-              </th>
-              <th
-                scope="col"
-                class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-              >
-                Phone number
-              </th>
               <% if current_user.admin? && controller_name == "consoles" && action_name == "show" %>
                 <th
                   scope="col"
@@ -187,12 +175,6 @@
                 </td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                   <%= l.linkedin %>
-                </td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                  <%= l.email %>
-                </td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                  <%= l.phone %>
                 </td>
                 <% if current_user.admin? && controller_name == "consoles" && action_name == "show" %>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
