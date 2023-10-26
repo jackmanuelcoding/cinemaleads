@@ -24,8 +24,7 @@ class LeadsController < ApplicationController
     authorize @lead
 
     if @lead.save
-      redirect_to console_path,
-                  notice: "#{@lead.company} has been added to leads."
+      redirect_to console_path, notice: "#{@lead.company} has been created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -56,7 +55,7 @@ class LeadsController < ApplicationController
 
     @lead.destroy
     redirect_to console_path,
-                notice: "#{@lead.company} has been removed from leads.",
+                notice: "#{@lead.company} has been destroyed.",
                 status: :see_other
   end
 

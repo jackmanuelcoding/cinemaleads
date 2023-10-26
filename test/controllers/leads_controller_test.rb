@@ -43,7 +43,7 @@ class LeadsControllerTest < ActionDispatch::IntegrationTest
            }
     end
     assert_redirected_to console_url
-    assert_equal "MyString has been added to leads.", flash[:notice]
+    assert_equal "MyString has been created.", flash[:notice]
   end
 
   test "should get edit" do
@@ -78,7 +78,7 @@ class LeadsControllerTest < ActionDispatch::IntegrationTest
     assert_difference("Lead.count", -1) do
       delete lead_url(@lead)
       assert_redirected_to console_url
-      assert_equal "MyString has been removed from leads.", flash[:notice]
+      assert_equal "MyString has been destroyed.", flash[:notice]
     end
   end
 
