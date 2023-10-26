@@ -16,7 +16,7 @@ Rails.application.routes.draw do
              }
 
   resources :stripe_webhooks, only: [:create]
-  resources :leads, except: [:show]
+  resources :leads
 
   resource :console, only: [:show]
 

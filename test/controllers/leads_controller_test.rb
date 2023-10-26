@@ -20,6 +20,13 @@ class LeadsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get show" do
+    sign_in @customer
+
+    get lead_url(@lead)
+    assert_response :success
+  end
+
   test "should get new" do
     sign_in @admin
 

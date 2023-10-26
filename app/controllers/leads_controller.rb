@@ -12,6 +12,10 @@ class LeadsController < ApplicationController
     end
   end
 
+  def show
+    @lead = Lead.find(params[:id])
+  end
+
   def new
     @lead = Lead.new
 
