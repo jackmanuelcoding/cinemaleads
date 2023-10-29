@@ -1,0 +1,4 @@
+one:
+  record: one (Blog)
+  name: body
+  body: MyRichText

@@ -22,7 +22,6 @@ gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[windows jruby]
 
 # gem "bcrypt", "~> 3.1.7"
-# gem "image_processing", "~> 1.2"
 # gem "kredis"
 # gem "redis", ">= 4.0.1"
 

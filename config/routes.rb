@@ -13,6 +13,7 @@ Rails.application.routes.draw do
                edit: "settings"
              }
 
+  resources :blogs
   resources :stripe_webhooks, only: [:create]
   resources :leads
 

@@ -1,0 +1,9 @@
+<%= form_with(model: @blog) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :body %>
+  <%= f.rich_text_area :body %>
+
+  <%= f.submit action_name == "new" ? "Create" : "Update" %>
+<% end %>
