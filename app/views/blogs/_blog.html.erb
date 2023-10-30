@@ -1,3 +1,32 @@
-<% @blogs.each do |b| %>
-  <%= link_to b.title, b, target: :_blank %>
-<% end %>
+<div class="bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        Blogs
+      </h2>
+      <div
+        class="mt-10 space-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16"
+      >
+        <% @blogs.each do |b| %>
+          <article class="flex max-w-xl flex-col items-start justify-between">
+            <div class="flex items-center gap-x-4 text-xs">
+              <time datetime="2020-03-16" class="text-gray-500"
+                ><%= b.created_at.to_date %></time
+              >
+            </div>
+            <div class="group relative">
+              <h3
+                class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
+              >
+                <%= link_to b, target: :_blank do %>
+                  <span class="absolute inset-0"></span>
+                  <%= b.title %>
+                <% end %>
+              </h3>
+            </div>
+          </article>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

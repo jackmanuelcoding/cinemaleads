@@ -1,9 +1,73 @@
-<%= form_with(model: @blog) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<div class="space-y-10 divide-y divide-gray-900/10">
+  <div class="grid grid-cols-1 gap-x-8 gap-y-8 pt-10 md:grid-cols-3">
+    <div class="px-4 sm:px-0">
+      <% if controller_name == "blogs" && action_name == "new" %>
+        <h2 class="text-base font-semibold leading-7 text-gray-900">
+          New blog
+        </h2>
+      <% elsif controller_name == "blogs" && action_name == "edit" %>
+        <h2 class="text-base font-semibold leading-7 text-gray-900">
+          Edit blog
+        </h2>
+      <% end %>
+    </div>
+    
+    <%= form_with(model: @blog, html: { class: "bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2" }) do |f| %>
+      <div class="px-4 py-6 sm:p-8">
+        <div
+          class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
+        >
+          <div class="sm:col-span-4">
+            <%= 
+              f.label :title,
+              class: "block text-sm font-medium leading-6 text-gray-900"  
+            %>
+            <div class="mt-2">
+              <%= 
+                f.text_field :title,
+                class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
+              %>
+              <% @blog.errors.full_messages_for(:title).each do |e| %>
+                <div class="mt-2 text-sm text-red-600">
+                  <%= e %>
+                </div>
+              <% end %>
+            </div>
+          </div>
 
-  <%= f.label :body %>
-  <%= f.rich_text_area :body %>
+          <div class="sm:col-span-4">
+            <%= 
+              f.label :body,
+              class: "block text-sm font-medium leading-6 text-gray-900"  
+            %>
+            <div class="mt-2">
+              <%= 
+                f.rich_text_area :body,
+                class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
+              %>
+              <% @blog.errors.full_messages_for(:body).each do |e| %>
+                <div class="mt-2 text-sm text-red-600">
+                  <%= e %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <%= f.submit action_name == "new" ? "Create" : "Update" %>
-<% end %>
+      <div
+        class="flex items-center justify-end gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8"
+      >
+        <%=
+          link_to "Cancel",
+          console_path, 
+          class: "text-sm font-semibold leading-6 text-gray-900" 
+        %>
+        <%=
+          f.submit action_name == "new" ? "Create" : "Update",
+          class: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer" 
+        %>
+      </div>
+    <% end %>
+  </div>
+</div>
